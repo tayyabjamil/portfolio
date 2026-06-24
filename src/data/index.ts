@@ -50,7 +50,7 @@ export const skillGroups = [
       'Expo EAS', 'GitHub Actions', 'Fastlane',
       'Bitbucket Pipelines', 'Jest', 'Detox',
       'React Native Testing Library', 'OTA Updates',
-      'A/B Testing', 'Feature Flags', 'Vercel',
+      'A/B Testing', 'Feature Flags', 'Vercel', 'Render',
     ],
   },
 ];

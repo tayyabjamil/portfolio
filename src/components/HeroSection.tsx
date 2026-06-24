@@ -292,7 +292,7 @@ export default function HeroSection({ onContactPress, onProjectsPress }: HeroSec
 
           <View style={styles.statsRow}>
             {[
-              { value: '6+', label: 'Years Exp.' },
+              { value: '5+', label: 'Years Exp.' },
               { value: '22+', label: 'Projects' },
               { value: '60K+', label: 'App Users' },
             ].map((stat) => (
@@ -301,6 +301,16 @@ export default function HeroSection({ onContactPress, onProjectsPress }: HeroSec
                 <Text style={styles.statLabel}>{stat.label}</Text>
               </View>
             ))}
+          </View>
+
+          <View style={styles.contactRow}>
+            <TouchableOpacity onPress={() => Linking.openURL(`mailto:${personalInfo.email}`)}>
+              <Text style={styles.contactItem}>✉️ {personalInfo.email}</Text>
+            </TouchableOpacity>
+            <Text style={styles.contactItem}>📍 {personalInfo.location}</Text>
+            <TouchableOpacity onPress={() => Linking.openURL('tel:07398030046')}>
+              <Text style={styles.contactItem}>📞 07398030046</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.ctaRow}>
@@ -530,6 +540,17 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: colors.textMuted,
     lineHeight: 20,
+  },
+  contactRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.lg,
+    marginBottom: spacing.xl,
+  },
+  contactItem: {
+    fontSize: 13,
+    color: colors.textMuted,
+    fontWeight: '500',
   },
   socialRow: {
     flexDirection: 'row',

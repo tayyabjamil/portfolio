@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
-  TextInput,
   Linking,
-  Alert,
+  Image,
 } from 'react-native';
+
+const GITHUB_SVG = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2324292e'%3E%3Cpath d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z'/%3E%3C/svg%3E`;
 import { colors, spacing } from '../theme';
 import { personalInfo } from '../data';
 
@@ -21,113 +22,84 @@ function SectionHeader({ number, title }: { number: string; title: string }) {
   );
 }
 
+const contacts = [
+  {
+    icon: '✉️',
+    label: 'Email',
+    value: personalInfo.email,
+    sub: 'Drop me a message anytime',
+    url: `mailto:${personalInfo.email}`,
+    color: '#2563eb',
+  },
+  {
+    icon: '📞',
+    label: 'Phone',
+    value: '07398030046',
+    sub: 'Available Mon–Fri, 9am–6pm',
+    url: 'tel:07398030046',
+    color: '#10b981',
+  },
+  {
+    icon: '💼',
+    label: 'LinkedIn',
+    value: 'muhammad-tayyab',
+    sub: 'Connect professionally',
+    url: personalInfo.linkedin,
+    color: '#0a66c2',
+  },
+  {
+    icon: '📍',
+    label: 'Location',
+    value: personalInfo.location,
+    sub: 'Open to remote worldwide',
+    url: null,
+    color: '#7c3aed',
+  },
+];
+
 export default function ContactSection() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [focused, setFocused] = useState<string | null>(null);
-
-  const handleSend = () => {
-    if (!name || !email || !message) {
-      Alert.alert('Missing fields', 'Please fill in all fields before sending.');
-      return;
-    }
-    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    Linking.openURL(`mailto:${personalInfo.email}?subject=${subject}&body=${body}`);
-  };
-
-  const inputStyle = (field: string) => [
-    formStyles.input,
-    focused === field && formStyles.inputFocused,
-  ];
-
   return (
     <View style={styles.container}>
       <SectionHeader number="05" title="Get In Touch" />
-      <Text style={styles.subtitle}>
-        Open to new opportunities, collaborations, and interesting projects.
-        Let's build something great together.
-      </Text>
 
-      <View style={styles.inner}>
-        <View style={styles.infoCol}>
-          <Text style={styles.infoTitle}>Let's Connect</Text>
-          <Text style={styles.infoText}>
-            Whether you have a project in mind, want to discuss mobile or web
-            architecture, or just want to say hi — my inbox is always open.
-          </Text>
-
-          <View style={styles.contactLinks}>
-            {[
-              { label: 'Email', value: personalInfo.email, url: `mailto:${personalInfo.email}` },
-              { label: 'GitHub', value: 'github.com/tayyabjamil', url: personalInfo.github },
-              { label: 'LinkedIn', value: 'linkedin.com/in/tayyab-jamil', url: personalInfo.linkedin },
-              { label: 'Portfolio', value: 'mtayyabjamil.com', url: personalInfo.portfolio },
-            ].map((link) => (
-              <TouchableOpacity
-                key={link.label}
-                style={styles.linkItem}
-                onPress={() => Linking.openURL(link.url)}
-              >
-                <Text style={styles.linkLabel}>{link.label}</Text>
-                <Text style={styles.linkValue}>{link.value}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-
-          <View style={styles.availability}>
-            <View style={styles.availDot} />
-            <Text style={styles.availText}>Available for freelance & full-time roles</Text>
-          </View>
+      <View style={styles.hero}>
+        <View style={styles.heroGlow} />
+        <Text style={styles.heroTitle}>Let's Build Something{'\n'}Great Together</Text>
+        <Text style={styles.heroSub}>
+          Open to full-time roles, freelance projects, and technical collaborations.
+          Whether it's a startup idea or an enterprise product — let's talk.
+        </Text>
+        <View style={styles.heroBadge}>
+          <View style={styles.heroDot} />
+          <Text style={styles.heroBadgeText}>Available for new opportunities</Text>
         </View>
+      </View>
 
-        <View style={styles.formCol}>
-          <View style={formStyles.field}>
-            <Text style={formStyles.label}>Your Name</Text>
-            <TextInput
-              style={inputStyle('name')}
-              placeholder="John Doe"
-              placeholderTextColor={colors.textDim}
-              value={name}
-              onChangeText={setName}
-              onFocus={() => setFocused('name')}
-              onBlur={() => setFocused(null)}
-            />
-          </View>
-          <View style={formStyles.field}>
-            <Text style={formStyles.label}>Email Address</Text>
-            <TextInput
-              style={inputStyle('email')}
-              placeholder="john@company.com"
-              placeholderTextColor={colors.textDim}
-              value={email}
-              onChangeText={setEmail}
-              keyboardType="email-address"
-              autoCapitalize="none"
-              onFocus={() => setFocused('email')}
-              onBlur={() => setFocused(null)}
-            />
-          </View>
-          <View style={formStyles.field}>
-            <Text style={formStyles.label}>Message</Text>
-            <TextInput
-              style={[inputStyle('message'), formStyles.textarea]}
-              placeholder="Tell me about your project..."
-              placeholderTextColor={colors.textDim}
-              value={message}
-              onChangeText={setMessage}
-              multiline
-              numberOfLines={5}
-              textAlignVertical="top"
-              onFocus={() => setFocused('message')}
-              onBlur={() => setFocused(null)}
-            />
-          </View>
-          <TouchableOpacity style={formStyles.submitBtn} onPress={handleSend}>
-            <Text style={formStyles.submitText}>Send Message →</Text>
+      <View style={styles.grid}>
+        {contacts.map(c => (
+          <TouchableOpacity
+            key={c.label}
+            style={styles.card}
+            onPress={() => c.url && Linking.openURL(c.url)}
+            activeOpacity={c.url ? 0.75 : 1}
+          >
+            <View style={[styles.iconBox, { backgroundColor: c.color + '14', borderColor: c.color + '30' }]}>
+              {c.icon
+                ? <Text style={styles.icon}>{c.icon}</Text>
+                : <Image source={{ uri: GITHUB_SVG }} style={styles.githubIcon} resizeMode="contain" />}
+            </View>
+            <View style={styles.cardBody}>
+              <Text style={styles.cardLabel}>{c.label}</Text>
+              <Text style={[styles.cardValue, c.url && { color: c.color }]}>{c.value}</Text>
+              <Text style={styles.cardSub}>{c.sub}</Text>
+            </View>
+            {c.url && (
+              <View style={[styles.arrow, { backgroundColor: c.color + '12' }]}>
+                <Text style={[styles.arrowText, { color: c.color }]}>→</Text>
+              </View>
+            )}
           </TouchableOpacity>
-        </View>
+        ))}
       </View>
     </View>
   );
@@ -144,7 +116,7 @@ const styles = StyleSheet.create({
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: spacing.sm,
+    marginBottom: spacing.xl,
     gap: spacing.md,
   },
   sectionNumber: {
@@ -164,117 +136,128 @@ const styles = StyleSheet.create({
     backgroundColor: colors.border,
     marginLeft: spacing.md,
   },
-  subtitle: {
+
+  hero: {
+    borderRadius: 20,
+    padding: spacing.xxxl,
+    marginBottom: spacing.xxl,
+    overflow: 'hidden',
+    position: 'relative',
+    backgroundColor: '#0f172a',
+    boxShadow: '0 8px 40px rgba(37,99,235,0.18)',
+  } as any,
+  heroGlow: {
+    position: 'absolute',
+    top: -60,
+    right: -60,
+    width: 280,
+    height: 280,
+    borderRadius: 140,
+    backgroundColor: 'rgba(37,99,235,0.25)',
+    filter: 'blur(60px)',
+  } as any,
+  heroTitle: {
+    fontSize: 36,
+    fontWeight: '800',
+    color: '#ffffff',
+    lineHeight: 46,
+    marginBottom: spacing.md,
+  },
+  heroSub: {
     fontSize: 15,
-    color: colors.textMuted,
+    color: 'rgba(255,255,255,0.65)',
+    lineHeight: 26,
+    maxWidth: 560,
     marginBottom: spacing.xl,
-    lineHeight: 24,
   },
-  inner: {
-    flexDirection: 'row',
-    gap: spacing.xxl,
-    flexWrap: 'wrap',
-  },
-  infoCol: {
-    flex: 1,
-    minWidth: 260,
-    gap: spacing.lg,
-  },
-  infoTitle: {
-    fontSize: 22,
-    fontWeight: '700',
-    color: colors.text,
-  },
-  infoText: {
-    fontSize: 14,
-    color: colors.textMuted,
-    lineHeight: 24,
-  },
-  contactLinks: {
-    gap: spacing.md,
-  },
-  linkItem: {
-    gap: 2,
-  },
-  linkLabel: {
-    fontSize: 11,
-    color: colors.textDim,
-    textTransform: 'uppercase',
-    letterSpacing: 1,
-    fontFamily: 'monospace',
-  },
-  linkValue: {
-    fontSize: 14,
-    color: colors.accent,
-    fontWeight: '500',
-    textDecorationLine: 'underline',
-  },
-  availability: {
+  heroBadge: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.sm,
-    backgroundColor: colors.bgCard,
-    padding: spacing.md,
-    borderRadius: 8,
+    backgroundColor: 'rgba(16,185,129,0.15)',
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: 'rgba(16,185,129,0.35)',
+    borderRadius: 20,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 6,
+    alignSelf: 'flex-start',
   },
-  availDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: colors.green,
+  heroDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
+    backgroundColor: '#10b981',
   },
-  availText: {
+  heroBadgeText: {
     fontSize: 13,
-    color: colors.textMuted,
-    fontWeight: '500',
+    color: '#10b981',
+    fontWeight: '600',
   },
-  formCol: {
-    flex: 2,
-    minWidth: 300,
+
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: spacing.md,
   },
-});
-
-const formStyles = StyleSheet.create({
-  field: {
-    gap: spacing.xs,
-  },
-  label: {
-    fontSize: 13,
-    color: colors.textMuted,
-    fontWeight: '500',
-  },
-  input: {
+  card: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
     backgroundColor: colors.bgCard,
+    borderRadius: 14,
     borderWidth: 1,
     borderColor: colors.border,
-    borderRadius: 8,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.md,
-    fontSize: 14,
-    color: colors.text,
-    outline: 'none',
+    padding: spacing.lg,
+    width: 'calc(50% - 8px)' as any,
+    minWidth: 280,
+    boxShadow: '0 1px 4px rgba(0,0,0,0.05)',
   } as any,
-  inputFocused: {
-    borderColor: colors.accent,
-    boxShadow: `0 0 0 3px ${colors.accentGlow}`,
-  } as any,
-  textarea: {
-    height: 130,
-    paddingTop: spacing.md,
+  iconBox: {
+    width: 48,
+    height: 48,
+    borderRadius: 12,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  submitBtn: {
-    backgroundColor: colors.accent,
-    paddingVertical: spacing.md,
+  icon: {
+    fontSize: 22,
+  },
+  githubIcon: {
+    width: 26,
+    height: 26,
+  },
+  cardBody: {
+    flex: 1,
+    gap: 2,
+  },
+  cardLabel: {
+    fontSize: 11,
+    color: colors.textDim,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    letterSpacing: 0.8,
+    fontFamily: 'monospace',
+  },
+  cardValue: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: colors.text,
+  },
+  cardSub: {
+    fontSize: 12,
+    color: colors.textMuted,
+    marginTop: 1,
+  },
+  arrow: {
+    width: 32,
+    height: 32,
     borderRadius: 8,
     alignItems: 'center',
-    marginTop: spacing.sm,
+    justifyContent: 'center',
   },
-  submitText: {
-    color: colors.white,
-    fontSize: 15,
+  arrowText: {
+    fontSize: 16,
     fontWeight: '700',
   },
 });

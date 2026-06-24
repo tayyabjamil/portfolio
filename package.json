@@ -22,7 +22,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "predeploy": "npx expo export --platform web && node scripts/patch-paths.js && touch dist/.nojekyll",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist --dotfiles"
   },
   "private": true
 }

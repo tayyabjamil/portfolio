@@ -2,7 +2,7 @@ export const personalInfo = {
   name: 'Tayyab Jamil',
   title: 'Full Stack Engineer',
   subtitle: 'React Native & Mobile Specialist',
-  bio: "Full Stack Engineer with 6+ years of experience architecting and delivering end-to-end web and mobile applications across corporate and startup environments. Expert in React Native, Expo, Next.js, Firebase, Supabase, Node.js, and scalable API development — from design to production deployment.",
+  bio: "Full Stack Engineer with 5+ years of experience architecting and delivering end-to-end web and mobile applications across corporate and startup environments. Expert in React Native, Expo, Next.js, Firebase, Supabase, Node.js, and scalable API development — from design to production deployment.",
   location: 'Greenwich, London',
   email: 'tayyabjamil777@gmail.com',
   github: 'https://github.com/tayyabjamil',

@@ -96,9 +96,9 @@ function DeviceShowcase() {
             {/* Left: web capabilities */}
             <View style={deviceStyles.heroLeft}>
               <View style={deviceStyles.expertiseBadge}>
-                <Text style={deviceStyles.expertiseLabel}>FULL STACK WEB</Text>
+                <Text style={deviceStyles.expertiseLabel}>5+ YRS · FULL STACK WEB</Text>
               </View>
-              <Text style={deviceStyles.webHeading}>Pixel-Perfect{'\n'}Web Experiences</Text>
+              <Text style={deviceStyles.webHeading}>Pixel-Perfect{'\n'}Web & Mobile Apps</Text>
               <Text style={deviceStyles.webSubheading}>From idea to production — scalable, fast, and built to convert.</Text>
               {[
                 { icon: '🛒', title: 'eCommerce & Marketplaces',    desc: 'Multi-vendor platforms, seller dashboards, Stripe checkout', c: '#2563eb' },
@@ -172,7 +172,7 @@ function DeviceShowcase() {
                   <View style={deviceStyles.rnHero}>
                     <Image source={LOGOS.react} style={deviceStyles.rnLogo} resizeMode="contain" />
                     <View style={deviceStyles.rnBadge}>
-                      <Text style={deviceStyles.rnBadgeText}>REACT NATIVE · EXPO</Text>
+                      <Text style={deviceStyles.rnBadgeText}>5+ YRS · REACT NATIVE · EXPO</Text>
                     </View>
                     <Text style={deviceStyles.rnTitle}>Native-Quality Apps{'\n'}for iOS & Android</Text>
                     <Text style={deviceStyles.rnSub}>Capabilities include</Text>
@@ -260,7 +260,7 @@ export default function HeroSection({ onContactPress, onProjectsPress }: HeroSec
           <View style={styles.badgeRow}>
             <View style={styles.badge}>
               <View style={styles.dot} />
-              <Text style={styles.badgeText}>Available for new projects</Text>
+              <Text style={styles.badgeText}>5+ Years of Experience</Text>
             </View>
           </View>
 
@@ -274,7 +274,21 @@ export default function HeroSection({ onContactPress, onProjectsPress }: HeroSec
             <Text style={[styles.cursor, { opacity: blink ? 1 : 0 }]}>|</Text>
           </View>
 
+
           <Text style={styles.bio}>{personalInfo.bio}</Text>
+
+          <View style={styles.achieveRow}>
+            {[
+              { icon: '🏆', text: 'Best Project of the Year — FYSH (50K+ users)' },
+              { icon: '📱', text: 'Apps live on iOS & Android App Stores' },
+              { icon: '🌍', text: 'Worked with UK startups & enterprise clients' },
+            ].map(a => (
+              <View key={a.text} style={styles.achieveItem}>
+                <Text style={styles.achieveIcon}>{a.icon}</Text>
+                <Text style={styles.achieveText}>{a.text}</Text>
+              </View>
+            ))}
+          </View>
 
           <View style={styles.statsRow}>
             {[
@@ -349,7 +363,7 @@ const styles = StyleSheet.create({
     backgroundSize: '50px 50px',
   } as any,
   inner: {
-    maxWidth: 1100,
+    maxWidth: 1400,
     width: '100%',
     alignSelf: 'center',
     flexDirection: 'row',
@@ -360,11 +374,12 @@ const styles = StyleSheet.create({
   textCol: {
     flex: 1,
     minWidth: 320,
+    paddingLeft: spacing.xxxl,
   },
   phoneCol: {
     flex: 1,
     minWidth: 720,
-    alignItems: 'center',
+    alignItems: 'flex-end',
     paddingVertical: spacing.xl,
   },
   badgeRow: {
@@ -479,6 +494,43 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
   },
+  highlightRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+    marginBottom: spacing.lg,
+  },
+  highlightTag: {
+    backgroundColor: colors.bgCard,
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: 20,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 4,
+  },
+  highlightTagText: {
+    fontSize: 12,
+    color: colors.textMuted,
+    fontWeight: '500',
+    fontFamily: 'monospace',
+  },
+  achieveRow: {
+    gap: spacing.sm,
+    marginBottom: spacing.xl,
+  },
+  achieveItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  achieveIcon: {
+    fontSize: 14,
+  },
+  achieveText: {
+    fontSize: 13,
+    color: colors.textMuted,
+    lineHeight: 20,
+  },
   socialRow: {
     flexDirection: 'row',
     gap: spacing.lg,
@@ -495,9 +547,9 @@ const styles = StyleSheet.create({
 const deviceStyles = StyleSheet.create({
   wrapper: {
     position: 'relative',
-    width: 720,
-    height: 560,
-    alignSelf: 'center',
+    width: 780,
+    height: 520,
+    alignSelf: 'flex-end',
   },
   glowBlue: {
     position: 'absolute',
@@ -553,7 +605,7 @@ const deviceStyles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: '#cbd5e1',
     backgroundColor: '#ffffff',
-    height: 520,
+    height: 480,
     boxShadow: '0 20px 60px rgba(0,0,0,0.15), 0 4px 16px rgba(37,99,235,0.10)',
   } as any,
 
@@ -703,7 +755,7 @@ const deviceStyles = StyleSheet.create({
     marginBottom: 2,
   },
   expertiseLabel: {
-    fontSize: 12,
+    fontSize: 15,
     fontWeight: '800',
     color: '#1d4ed8',
     letterSpacing: 0.5,
@@ -735,16 +787,16 @@ const deviceStyles = StyleSheet.create({
 
   /* Web heading / subheading */
   webHeading: {
-    fontSize: 22,
+    fontSize: 28,
     fontWeight: '800',
     color: '#0f172a',
-    lineHeight: 28,
+    lineHeight: 34,
     marginTop: 2,
   },
   webSubheading: {
-    fontSize: 11,
+    fontSize: 13,
     color: '#64748b',
-    lineHeight: 15,
+    lineHeight: 18,
     marginTop: 3,
     marginBottom: 4,
   },
@@ -785,9 +837,9 @@ const deviceStyles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 1,
   },
-  capEmoji: { fontSize: 11 },
-  capTitle: { fontSize: 9.5, fontWeight: '700', lineHeight: 13 },
-  capDesc:  { fontSize: 8, color: '#64748b', lineHeight: 11, marginTop: 1 },
+  capEmoji: { fontSize: 13 },
+  capTitle: { fontSize: 12, fontWeight: '700', lineHeight: 16 },
+  capDesc:  { fontSize: 10, color: '#64748b', lineHeight: 13, marginTop: 1 },
   capDot: { width: 5, height: 5, borderRadius: 2.5 },
 
   /* Web project rows */
@@ -860,7 +912,7 @@ const deviceStyles = StyleSheet.create({
     backgroundColor: '#f8fafc',
     borderLeftWidth: 1,
     borderLeftColor: '#e2e8f0',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     justifyContent: 'center',
     paddingVertical: 8,
     paddingHorizontal: 10,
@@ -869,7 +921,7 @@ const deviceStyles = StyleSheet.create({
   /* Phone frame */
   phone: {
     width: 200,
-    height: 470,
+    height: 400,
     borderRadius: 30,
     borderWidth: 7,
     borderColor: '#1e293b',

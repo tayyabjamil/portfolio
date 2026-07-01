@@ -92,7 +92,7 @@ export default function ExperienceSection() {
   return (
     <View style={styles.container}>
       <SectionHeader number="04" title="Work Experience" />
-      <Text style={styles.subtitle}>6+ years building production products across mobile, web, and backend</Text>
+      <Text style={styles.subtitle}>5+ years building production products across mobile, web, and backend</Text>
       <View style={styles.timeline}>
         {experience.map((item, i) => (
           <ExperienceItem key={item.id} item={item} isLast={i === experience.length - 1} />

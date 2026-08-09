@@ -20,10 +20,11 @@ const LOGOS = {
 };
 
 const TYPING_STRINGS = [
-  'Full Stack Engineer',
+  'Full-Stack AI Engineer',
   'React Native Specialist',
+  'LangChain · RAG Pipelines',
   'Mobile App Architect',
-  'Next.js / Node.js Developer',
+  'Agentic Workflows Expert',
 ];
 
 
@@ -96,7 +97,7 @@ function DeviceShowcase() {
             {/* Left: web capabilities */}
             <View style={deviceStyles.heroLeft}>
               <View style={deviceStyles.expertiseBadge}>
-                <Text style={deviceStyles.expertiseLabel}>5+ YRS · FULL STACK WEB</Text>
+                <Text style={deviceStyles.expertiseLabel}>6+ YRS · FULL-STACK AI</Text>
               </View>
               <Text style={deviceStyles.webHeading}>Pixel-Perfect{'\n'}Web & Mobile Apps</Text>
               <Text style={deviceStyles.webSubheading}>From idea to production — scalable, fast, and built to convert.</Text>
@@ -172,7 +173,7 @@ function DeviceShowcase() {
                   <View style={deviceStyles.rnHero}>
                     <Image source={LOGOS.react} style={deviceStyles.rnLogo} resizeMode="contain" />
                     <View style={deviceStyles.rnBadge}>
-                      <Text style={deviceStyles.rnBadgeText}>5+ YRS · REACT NATIVE · EXPO</Text>
+                      <Text style={deviceStyles.rnBadgeText}>6+ YRS · REACT NATIVE · AI</Text>
                     </View>
                     <Text style={deviceStyles.rnTitle}>Native-Quality Apps{'\n'}for iOS & Android</Text>
                     <Text style={deviceStyles.rnSub}>Capabilities include</Text>
@@ -260,7 +261,7 @@ export default function HeroSection({ onContactPress, onProjectsPress }: HeroSec
           <View style={styles.badgeRow}>
             <View style={styles.badge}>
               <View style={styles.dot} />
-              <Text style={styles.badgeText}>5+ Years of Experience</Text>
+              <Text style={styles.badgeText}>6+ Years of Experience</Text>
             </View>
           </View>
 
@@ -280,8 +281,8 @@ export default function HeroSection({ onContactPress, onProjectsPress }: HeroSec
           <View style={styles.achieveRow}>
             {[
               { icon: '🏆', text: 'Best Project of the Year — FYSH (50K+ users)' },
-              { icon: '📱', text: 'Apps live on iOS & Android App Stores' },
-              { icon: '🌍', text: 'Worked with UK startups & enterprise clients' },
+              { icon: '🤖', text: 'LangChain RAG pipeline — 90%+ generation runs, 20% cost cut' },
+              { icon: '🌍', text: '20+ production systems · 600K+ users · UK & global clients' },
             ].map(a => (
               <View key={a.text} style={styles.achieveItem}>
                 <Text style={styles.achieveIcon}>{a.icon}</Text>
@@ -292,9 +293,9 @@ export default function HeroSection({ onContactPress, onProjectsPress }: HeroSec
 
           <View style={styles.statsRow}>
             {[
-              { value: '5+', label: 'Years Exp.' },
-              { value: '22+', label: 'Projects' },
-              { value: '60K+', label: 'App Users' },
+              { value: '6+', label: 'Years Exp.' },
+              { value: '20+', label: 'Projects' },
+              { value: '600K+', label: 'App Users' },
             ].map((stat) => (
               <View key={stat.label} style={styles.statItem}>
                 <Text style={styles.statValue}>{stat.value}</Text>

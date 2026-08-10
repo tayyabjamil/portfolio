@@ -1,8 +1,8 @@
 export const personalInfo = {
   name: 'Tayyab Jamil',
-  title: 'Senior Full-Stack Engineer',
-  subtitle: 'React Native · Node.js · AI Engineering',
-  bio: "Senior Full-Stack Engineer with 6 years specialising in React Native and production AI systems. Delivered 20+ apps and platforms serving 600K+ users — including FYSH (50K+ users, Best Project of the Year), Argonaut (100+ field engineers, offline-first), and a LangChain RAG pipeline achieving 90%+ generation runs and cutting LLM costs by 20%. Strong across the full stack: mobile architecture, Node.js backends, and AI/LLM integration with LangChain, pgvector, OpenAI, and Claude API.",
+  title: 'Senior React Native Engineer',
+  subtitle: 'Full-Stack · AI Engineering · LangChain',
+  bio: "Senior React Native & Full-Stack AI Engineer with 6 years passionate about using technology to solve real problems. Deep expertise in React Native, Node.js, TypeScript, LangChain, pgvector, OpenAI APIs, Claude API, RAG pipelines, agentic workflows, and vector databases. Delivered 20+ production systems serving 600K+ users — including a LangChain RAG pipeline achieving 90%+ generation runs and cutting LLM costs by 20%, and 7 Sanofi pharmaceutical platforms impacting 70K+ employees globally. Uses Claude, Cursor, Qodo, and MCPs daily to write, evaluate, test, and review code.",
   location: 'Greenwich, London',
   email: 'tayyabjamil777@gmail.com',
   github: 'https://github.com/tayyabjamil',
@@ -12,15 +12,16 @@ export const personalInfo = {
 
 export const skillGroups = [
   {
-    category: 'Mobile Architecture',
+    category: 'Mobile & Frontend',
     icon: '📱',
     color: '#2563eb',
     skills: [
-      'React Native', 'Expo', 'TypeScript', 'JavaScript (ES6+)',
+      'React Native', 'Expo', 'React.js', 'Next.js',
+      'TypeScript', 'JavaScript (ES6+)',
       'React Navigation', 'FlashList', 'Reanimated 3',
       'NativeWind', 'Tailwind CSS', 'Hermes',
       'New Architecture (JSI, TurboModules, Fabric)',
-      'Xcode', 'Android Studio',
+      'Xcode', 'Android Studio', 'Figma',
     ],
   },
   {
@@ -63,6 +64,18 @@ export const skillGroups = [
 ];
 
 export const projects = [
+  {
+    id: '9',
+    title: 'LeftOverChef — AI Nutrition App',
+    description:
+      'AI-powered nutrition and meal-planning platform that transforms leftover ingredients into personalised recipes. Built across React Native, Next.js, and Supabase with a full LangChain RAG pipeline — multimodal ingredient detection from camera, macro-aware retrieval, dietary filtering, and structured output generation.',
+    tags: ['React Native', 'Next.js', 'LangChain', 'pgvector', 'OpenAI', 'Supabase', 'TypeScript'],
+    highlights: ['300+ beta users', '90%+ recipe generation success', '20% LLM cost reduction'],
+    github: null,
+    store: 'https://apps.apple.com/app/leftoverchef',
+    color: '#10b981',
+    image: null,
+  },
   {
     id: '7',
     title: 'BusyMotors',

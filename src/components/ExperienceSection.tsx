@@ -92,7 +92,7 @@ export default function ExperienceSection() {
   return (
     <View style={styles.container}>
       <SectionHeader number="04" title="Work Experience" />
-      <Text style={styles.subtitle}>5+ years shipping React Native apps at scale — 50K+ users, 300K+ users, 300+ engineers</Text>
+      <Text style={styles.subtitle}>6+ years shipping React Native and full-stack AI systems at scale — 600K+ users, 20+ production systems, global clients</Text>
       <View style={styles.timeline}>
         {experience.map((item, i) => (
           <ExperienceItem key={item.id} item={item} isLast={i === experience.length - 1} />

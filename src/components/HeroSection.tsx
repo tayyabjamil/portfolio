@@ -21,9 +21,9 @@ const LOGOS = {
 
 const TYPING_STRINGS = [
   'Senior React Native Engineer',
-  'Full-Stack Developer',
+  'Full-Stack AI Engineer',
   'Mobile App Architect',
-  'AI & LLM Engineer',
+  'LangChain · RAG Pipelines',
   'Node.js · TypeScript · Expo',
 ];
 

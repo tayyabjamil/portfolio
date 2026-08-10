@@ -72,9 +72,9 @@ export const projects = [
     tags: ['React Native', 'Next.js', 'LangChain', 'pgvector', 'OpenAI', 'Supabase', 'TypeScript'],
     highlights: ['300+ beta users', '90%+ recipe generation success', '20% LLM cost reduction'],
     github: null,
-    store: 'https://apps.apple.com/app/leftoverchef',
+    store: 'https://www.leftoverchef.co.uk/home',
     color: '#10b981',
-    image: null,
+    image: require('../../assets/leftoverchef.jpg'),
   },
   {
     id: '7',

@@ -20,11 +20,11 @@ const LOGOS = {
 };
 
 const TYPING_STRINGS = [
-  'Full-Stack AI Engineer',
-  'React Native Specialist',
-  'LangChain · RAG Pipelines',
+  'Senior React Native Engineer',
+  'Full-Stack Developer',
   'Mobile App Architect',
-  'Agentic Workflows Expert',
+  'AI & LLM Engineer',
+  'Node.js · TypeScript · Expo',
 ];
 
 
@@ -97,7 +97,7 @@ function DeviceShowcase() {
             {/* Left: web capabilities */}
             <View style={deviceStyles.heroLeft}>
               <View style={deviceStyles.expertiseBadge}>
-                <Text style={deviceStyles.expertiseLabel}>6+ YRS · FULL-STACK AI</Text>
+                <Text style={deviceStyles.expertiseLabel}>6+ YRS · FULL STACK · AI</Text>
               </View>
               <Text style={deviceStyles.webHeading}>Pixel-Perfect{'\n'}Web & Mobile Apps</Text>
               <Text style={deviceStyles.webSubheading}>From idea to production — scalable, fast, and built to convert.</Text>
@@ -173,7 +173,7 @@ function DeviceShowcase() {
                   <View style={deviceStyles.rnHero}>
                     <Image source={LOGOS.react} style={deviceStyles.rnLogo} resizeMode="contain" />
                     <View style={deviceStyles.rnBadge}>
-                      <Text style={deviceStyles.rnBadgeText}>6+ YRS · REACT NATIVE · AI</Text>
+                      <Text style={deviceStyles.rnBadgeText}>6+ YRS · REACT NATIVE · NODE.JS</Text>
                     </View>
                     <Text style={deviceStyles.rnTitle}>Native-Quality Apps{'\n'}for iOS & Android</Text>
                     <Text style={deviceStyles.rnSub}>Capabilities include</Text>
@@ -281,8 +281,8 @@ export default function HeroSection({ onContactPress, onProjectsPress }: HeroSec
           <View style={styles.achieveRow}>
             {[
               { icon: '🏆', text: 'Best Project of the Year — FYSH (50K+ users)' },
-              { icon: '🤖', text: 'LangChain RAG pipeline — 90%+ generation runs, 20% cost cut' },
-              { icon: '🌍', text: '20+ production systems · 600K+ users · UK & global clients' },
+              { icon: '🤖', text: 'AI-powered RAG pipeline — 90%+ generation runs, 20% cost cut' },
+              { icon: '🌍', text: '20+ apps & platforms · 600K+ users · UK & global clients' },
             ].map(a => (
               <View key={a.text} style={styles.achieveItem}>
                 <Text style={styles.achieveIcon}>{a.icon}</Text>

@@ -1,8 +1,8 @@
 export const personalInfo = {
   name: 'Tayyab Jamil',
-  title: 'Full-Stack AI Engineer',
-  subtitle: 'React Native · LangChain · Agentic Workflows',
-  bio: "Full-Stack AI Engineer with 6 years passionate about using technology to solve real problems. Deep expertise in React Native, Python, Node.js, TypeScript, LangChain, pgvector, OpenAI APIs, Claude API, RAG pipelines, agentic workflows, and vector databases. Delivered 20+ production systems serving 600K+ users — including a LangChain RAG pipeline achieving 90%+ generation runs and cutting LLM costs by 20%, and 7 Sanofi pharmaceutical platforms impacting 70K+ employees globally. Uses Claude, Cursor, Qodo, and MCPs daily to write, evaluate, test, and review code.",
+  title: 'Senior Full-Stack Engineer',
+  subtitle: 'React Native · Node.js · AI Engineering',
+  bio: "Senior Full-Stack Engineer with 6 years specialising in React Native and production AI systems. Delivered 20+ apps and platforms serving 600K+ users — including FYSH (50K+ users, Best Project of the Year), Argonaut (100+ field engineers, offline-first), and a LangChain RAG pipeline achieving 90%+ generation runs and cutting LLM costs by 20%. Strong across the full stack: mobile architecture, Node.js backends, and AI/LLM integration with LangChain, pgvector, OpenAI, and Claude API.",
   location: 'Greenwich, London',
   email: 'tayyabjamil777@gmail.com',
   github: 'https://github.com/tayyabjamil',
